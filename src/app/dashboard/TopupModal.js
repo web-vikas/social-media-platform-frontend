@@ -4,7 +4,7 @@ const TopupModal = ({ _this }) => {
   return _this.isTopUPModalOpen ? (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-50"></div>
-      <div className="bg-white w-6/12 h-3/6 p-4 rounded shadow-lg z-50 relative">
+      <div className="bg-white sm:mx-auto sm:w-full sm:max-w-md h-3/6 p-4 rounded shadow-lg z-50 relative">
         <button
           onClick={() => _this.setIsTopUPModalOpen(false)}
           className="absolute top-0 right-0 m-2 text-gray-500 hover:text-gray-700 cursor-pointer"
@@ -14,7 +14,7 @@ const TopupModal = ({ _this }) => {
         <h1 className="font-bold absolute top-0 left-2 m-2">TopUp</h1>
         <div className="mt-5">
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form onSubmit={_this.handelTopupSubmit}>
+            <form onSubmit={_this.handelTopupSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="amount"
@@ -56,7 +56,7 @@ const TopupModal = ({ _this }) => {
                 </div>
               </div>
 
-              <div>
+              <div className="mt-2">
                 <button
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

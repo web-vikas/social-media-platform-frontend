@@ -14,7 +14,7 @@ const Body = ({ _this }) => {
             </div>
           </div>
           <p className="mb-4">Utilities for setting the maximum </p>
-          <h4 className="mb-10">$268,3</h4>
+          <h4 className="mb-10">${_this.currentBalance}</h4>
           <button
             onClick={() => _this.setIsTopUPModalOpen(true)}
             className="bg-red-500 px-6 py-1 rounded-[4px] font-bold text-white hover:bg-red-700"

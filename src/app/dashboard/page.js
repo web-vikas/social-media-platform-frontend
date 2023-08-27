@@ -47,6 +47,8 @@ const page = () => {
         toast.success("Added Successfully");
         setAmount("");
         setRemarks("");
+        init();
+        setIsTopUPModalOpen(false);
       } else {
         toast.error(res.data.error);
       }
