@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "@/components/Loading/index";
 
 const Body = ({ props }) => {
   return (
@@ -120,6 +121,7 @@ const Body = ({ props }) => {
           </p>
         </div>
       </div>
+      <Loading isShown={props.isFormSubmitting} />
     </>
   );
 };

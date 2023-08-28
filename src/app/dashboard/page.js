@@ -11,6 +11,8 @@ const page = () => {
   const [amount, setAmount] = useState("");
   const [remarks, setRemarks] = useState("");
   const [currentBalance, setCurrentBalance] = useState(0);
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false); // Function to handle form submission
+
   const router = useRouter();
 
   useEffect(() => {
@@ -29,6 +31,7 @@ const page = () => {
     e.preventDefault();
 
     try {
+      setIsFormSubmitting(true);
       const res = await axios.post(
         "https://social-media-platform-backend.vercel.app/v1/wallet/insert-amount",
         {
@@ -49,16 +52,22 @@ const page = () => {
         setRemarks("");
         init();
         setIsTopUPModalOpen(false);
+        setIsFormSubmitting(false);
       } else {
+        setIsFormSubmitting(false);
         toast.error(res.data.error);
       }
     } catch (error) {
+      setIsFormSubmitting(false);
+
       console.error("Error:", error);
       toast.error("An error occurred");
     }
   };
   const init = async () => {
     try {
+      setIsFormSubmitting(true);
+
       const res = await axios.post(
         "https://social-media-platform-backend.vercel.app/v1/wallet/get-amount",
         {
@@ -73,6 +82,7 @@ const page = () => {
       if (res) {
         setCurrentBalance(res.data.credit_amount);
       }
+      setIsFormSubmitting(false);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -91,6 +101,7 @@ const page = () => {
           setRemarks,
           handelTopupSubmit,
           currentBalance,
+          isFormSubmitting,
         }}
       />
     </>

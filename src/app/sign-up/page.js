@@ -8,6 +8,7 @@ export default function SignUP() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isFormSubmitting, setIsFormSubmitting] = useState(false); // Function to handle form submission
 
   const SignUp = async () => {
     // Email validation regex
@@ -40,6 +41,7 @@ export default function SignUP() {
     const data = { name, email, password, confirmPassword };
 
     try {
+      setIsFormSubmitting(true);
       const res = await axios.post(
         "https://social-media-platform-backend.vercel.app/v1/auth/sign-up",
         data
@@ -51,7 +53,9 @@ export default function SignUP() {
         setEmail("");
         setPassword("");
         setConfirmPassword("");
+        setIsFormSubmitting(false);
       } else {
+        setIsFormSubmitting(false);
         toast.error(res.data.error);
       }
     } catch (error) {
@@ -72,6 +76,7 @@ export default function SignUP() {
         confirmPassword,
         setConfirmPassword,
         SignUp,
+        isFormSubmitting,
       }}
     />
   );

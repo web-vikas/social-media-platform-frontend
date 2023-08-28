@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Loading from "@/components/Loading/index";
+
 function Index() {
   const router = useRouter();
 
@@ -33,7 +35,7 @@ function Index() {
         router.push("/dashboard");
       } else {
         setIsFormSubmitting(false);
-        toast.error("Login failed: No access token");
+        toast.error("Login failed: Wrong Email or Password !");
       }
     } catch (error) {
       // Handle error (e.g., display an error message)
@@ -118,6 +120,7 @@ function Index() {
           </a>
         </p>
       </div>
+      <Loading isShown={isFormSubmitting} />
     </>
   );
 }

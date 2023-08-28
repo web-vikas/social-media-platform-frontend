@@ -2,7 +2,7 @@ import React from "react";
 
 const TopupModal = ({ _this }) => {
   return _this.isTopUPModalOpen ? (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-10 overflow-hidden">
       <div className="fixed inset-0 bg-black opacity-50"></div>
       <div className="bg-white sm:mx-auto sm:w-full sm:max-w-md h-3/6 p-4 rounded shadow-lg z-50 relative">
         <button
