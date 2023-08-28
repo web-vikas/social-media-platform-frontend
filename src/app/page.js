@@ -29,10 +29,10 @@ function Index() {
         localStorage.setItem("access_token", response.data.access_token);
         localStorage.setItem("user_id", response.data._id);
         localStorage.setItem("is_authenticated", "true");
+        router.push("/dashboard");
         setEmail("");
         setPassword("");
         setIsFormSubmitting(false);
-        router.push("/dashboard");
       } else {
         setIsFormSubmitting(false);
         toast.error("Login failed: Wrong Email or Password !");
